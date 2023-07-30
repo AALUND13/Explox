@@ -13,6 +13,10 @@ scriptDir = os.path.dirname(script_path)
 
 downloadDirName = "Download"  # The path where you want to save the downloaded directory
 
+def press_any_key_to_continue():
+    print("Press any key to continue...")
+    input()
+
 def download_github_directory(username, repository, branch, path):
     api_url = f"https://api.github.com/repos/{username}/{repository}/zipball/{branch}"
 
@@ -78,3 +82,5 @@ if download_github_directory(github_user, github_repo, github_branch, scriptDir 
                 shutil.copytree(scriptDir + "\\" + downloadDirName + "\\" + x + "\\" + z, scriptDir + "\\" + z)
                 print("successfully copy 'scripts' directory")
         break
+
+press_any_key_to_continue()
